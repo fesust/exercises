@@ -12,7 +12,7 @@ public class Vowels {
 	
 	public static int getCount(String str) {
 	    int vowelsCount = 0;
-	    String regex = "[aeiouAEUIO]";
+	    String regex = "[aeiouvbAEUIO]";
 	    Pattern p = Pattern.compile(regex);
 	    Matcher m = p.matcher(str);
 	    while(m.find()) vowelsCount++;  
@@ -22,7 +22,7 @@ public class Vowels {
 	public static void main(String[] args) {
 		System.out.println(getCount("abracadabra")); //5
 		System.out.println(getCount("This is a bit longer string with spaces, and special characters too, like comma or point.")); //26
-		System.out.println(getCount("")); //0
+		System.out.println(getCount("vvvvbbb")); //0
 	}
 
 }

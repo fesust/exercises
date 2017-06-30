@@ -21,7 +21,7 @@ public class Zoo {
 		zooanimals[9] = new Animal("giraffe", "April", "female", 24, "Herbivore", "brown");
 		zooanimals[10] = new Animal("fox", "Mulder", "male", 7, "Carnivore", "red");
 		zooanimals[11] = new Animal("fox", "Eevee", "female", 9, "Carnivore", "red");
-	
+		/*
 		int total = getTotalAge(zooanimals);
 		System.out.println("Total age of animals: " + total);
 		double avg = getAverageAge(zooanimals, total);
@@ -30,6 +30,9 @@ public class Zoo {
 		getTheOldest(zooanimals);
 		getTheYoungest(zooanimals);
 		System.out.println("The number of carnivores: " + numOfCarni(zooanimals));
+		*/
+		printGrayAnimals(zooanimals);
+		countSpecies(zooanimals);
 	}
 	
 	public static int getTotalAge(Animal [] animals) {
@@ -83,8 +86,6 @@ public class Zoo {
 		System.out.println("The youngest animal is: " + youngest[index].getName() + ", " + youngest[index].getSpecies() + ", " + youngest[index].getAge());
 	}
 	
-	
-
 	public static int numOfCarni (Animal[] carnis){
 		int numOfCarnis=0;
 		for (int i=0; i < carnis.length; i++) {
@@ -93,5 +94,32 @@ public class Zoo {
 			}
 		}
 		return numOfCarnis;
-	}	
+	}
+	
+	public static void printGrayAnimals(Animal[] grays){
+		for (int i=0; i < grays.length; i++) {
+			if (grays[i].getColor().equals("grey")){
+				System.out.println("Grey animal is: " + grays[i].getName() + ", " + grays[i].getSpecies());
+			}
+		}
+	}
+	
+	public static void countSpecies(Animal[] animals) {
+		int wolfCounter=0, elephantCounter=0;
+		for (int i=0; i < animals.length; i++) {
+			String species = animals[i].getSpecies();
+			switch (species) {
+			case "wolf":
+				wolfCounter++;
+				break;
+			case "elephant":
+				elephantCounter++;
+				break;
+			default:
+				break;
+			}
+		}
+		System.out.println("Number of wolves: " + wolfCounter);
+		System.out.println("Number of elephants: " + elephantCounter);
+	}
 }
